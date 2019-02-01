@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/addapptables/notifier",
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "@addapptables/perfect-scrollbar": "addapptables-perfect-scrollbar"
+    }
+  }
+}

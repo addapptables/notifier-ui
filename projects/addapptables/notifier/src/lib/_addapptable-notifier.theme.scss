@@ -1,0 +1,30 @@
+@mixin addapptable-notifier($theme, $variables) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    .addapptable-notifier {
+        &-success {
+            background-color: map-get($variables, color-success);
+            color: map-get($variables, color-success);
+        }
+        &-info {
+            background-color: map-get($variables, color-info);
+            color: map-get($variables, color-info);
+        }
+        &-warning {
+            background-color: map-get($variables, color-warning);
+            color: map-get($variables, color-warning);
+        }
+        &-danger {
+            background-color: map-get($variables, color-danger);
+            color: map-get($variables, color-danger);
+        }
+        &-primary {
+            background-color: mat-color($primary, 0.9);
+            color: mat-color($primary, 0.9);
+        }
+        &-accent {
+            background-color: mat-color($accent, 0.9);
+            color: mat-color($accent, 0.9);
+        }
+    }
+}

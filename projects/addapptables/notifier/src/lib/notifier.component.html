@@ -1,0 +1,11 @@
+<div [class]="'addapptable-notifier '+ data.type" [@notifierAnimator]="_state" (@notifierAnimator.start)="_animationStateChanged.emit($event)"
+  (@notifierAnimator.done)="_animationStateChanged.emit($event)" [ngStyle]="_style">
+  <i *ngIf="configuration.classIcon" [class]="configuration.classIcon + ' ' + data.type">{{configuration.iconValue}}</i>
+  <button mat-icon-button type="button" (click)="close()">
+    <i class="material-icons">close</i>
+  </button>
+  <span class="message">
+    <ng-template addapptablesDynamic></ng-template>
+    <span *ngIf="!data.templateOrComponent">{{data.message}}</span>
+  </span>
+</div>

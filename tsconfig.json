@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@addapptables/notifier": [
+        "dist/addapptables/notifier"
+      ],
+      "@addapptables/notifier/*": [
+        "dist/addapptables/notifier/*"
+      ]
+    }
   }
 }
