@@ -3,28 +3,46 @@
     $accent: map-get($theme, accent);
     .addapptable-notifier {
         &-success {
-            background-color: map-get($variables, color-success);
-            color: map-get($variables, color-success);
+            background-color: map-get($variables, color-success) !important;
+            color: map-get($variables, color-success) !important;
+            & > i {
+                color: map-get($variables, color-success) !important;
+            }
         }
         &-info {
-            background-color: map-get($variables, color-info);
-            color: map-get($variables, color-info);
+            background-color: map-get($variables, color-info) !important;
+            color: map-get($variables, color-info) !important;
+            & > i {
+                color: map-get($variables, color-info) !important;
+            }
         }
         &-warning {
-            background-color: map-get($variables, color-warning);
-            color: map-get($variables, color-warning);
+            background-color: map-get($variables, color-warning) !important;
+            color: map-get($variables, color-warning) !important;
+            & > i {
+                color: map-get($variables, color-warning) !important;
+            }
         }
         &-danger {
-            background-color: map-get($variables, color-danger);
-            color: map-get($variables, color-danger);
+            background-color: map-get($variables, color-danger) !important;
+            color: map-get($variables, color-danger) !important;
+            & > i {
+                color: map-get($variables, color-danger) !important;
+            }
         }
         &-primary {
-            background-color: mat-color($primary, 0.9);
-            color: mat-color($primary, 0.9);
+            background-color: mat-color($primary, 0.9) !important;
+            color: mat-color($primary, 0.9) !important;
+            & > i {
+                color: mat-color($primary, 0.9) !important;
+            }
         }
         &-accent {
-            background-color: mat-color($accent, 0.9);
-            color: mat-color($accent, 0.9);
+            background-color: mat-color($accent, 0.9) !important;
+            color: mat-color($accent, 0.9) !important;
+            & > i {
+                color: mat-color($accent, 0.9) !important;
+            }
         }
     }
 }

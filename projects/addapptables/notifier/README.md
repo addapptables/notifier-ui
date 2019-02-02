@@ -4,6 +4,8 @@ ADDAPPTABLES notifier is a library for angular
 
 [See demo](http://addapptables.com/admin/components/notifiers)
 
+[Example code](https://stackblitz.com/edit/angular-notifier)
+
 ## Getting Started
 To get started, let's install the package through npm:
 
