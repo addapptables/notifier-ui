@@ -1,9 +1,11 @@
 # ADDAPPTABLES notifier
 
+ADDAPPTABLES notifier is a library for angular
+
 [See demo](http://addapptables.com/admin/components/notifiers)
 
 ## Getting Started
-To get started, lets install the package thru npm:
+To get started, let's install the package through npm:
 
 ```
 npm i @addapptables/notifier --S
@@ -13,8 +15,7 @@ Install peer dependencies
 
 ```
 npm i
-@addapptables/perfect-scrollbar
-perfect-scrollbar
+@addapptables/core
 @angular/material
 @angular/cdk
 @angular/animations --S
@@ -22,13 +23,26 @@ perfect-scrollbar
 
 ## How to use
 
+- Import the module NotifierModule into the AppModule
+
 ```typescript
 import { NotifierModule } from '@addapptables/notifier';
 @NgModule({
-  imports: [NotifierModule.forRoot()]
+  imports: [
+    NotifierModule.forRoot() ,
+    // options
+    /*NotifierModule.forRoot({
+      position: NotifierPositionType.bottomRight,
+      timeout: 5000,
+      classIcon: 'material-icons',
+      iconValue: 'notifications'
+    })*/
+  ]
 })
 export class AppModule { }
 ```
+
+- Import the module NotifierModule into the ChildModule
 
 ```typescript
 import { NotifierModule } from '@addapptables/notifier';
@@ -36,8 +50,10 @@ import { NotifierModule } from '@addapptables/notifier';
   imports: [NotifierModule],
   declarations: [NotifierComponent]
 })
-export class ChildModuleModule { }
+export class ChildModule { }
 ```
+
+- Create a component an inject NotifierService
 
 ```typescript
 @Component(// ...)
@@ -53,9 +69,21 @@ export class NotifierComponent {
   }
 }
 ```
-
 ```html
     <button type="button" mat-raised-button color="primary" (click)="openNotifier()">Notifier success</button>
+```
+
+- Notifier type options
+
+```typescript
+export enum NotifierType {
+    primary,
+    accent,
+    success,
+    warning,
+    danger,
+    info
+}
 ```
 
 ## Custom notifier
@@ -73,6 +101,21 @@ export class NotifierCustomComponent {
     <span class="notifier-custom">
         <mat-icon suffix *ngIf="notifier.data?.icon">{{notifier.data.icon}}</mat-icon> {{notifier.message}}
     </span>
+```
+
+```typescript
+import { NotifierModule } from '@addapptables/notifier';
+@NgModule({
+  imports: [
+    //...,
+    NotifierModule
+  ],
+  declarations: [NotifierCustomComponent, NotifierCustomSuccessComponent],
+  entryComponents: [
+    NotifierCustomComponent // important this line
+  ]
+})
+export class ChildModuleModule { }
 ```
 
 ```typescript
@@ -94,19 +137,6 @@ export class NotifierCustomSuccessComponent {
 }
 ```
 
-```typescript
-import { NotifierModule } from '@addapptables/notifier';
-@NgModule({
-  imports: [
-    //...,
-    NotifierModule
-  ],
-  declarations: [NotifierCustomComponent, NotifierCustomSuccessComponent],
-  entryComponents: [NotifierCustomComponent]
-})
-export class ChildModuleModule { }
-```
-
 ## Custom css
 
 ```scss
@@ -126,6 +156,13 @@ $addapptable-theme-variables: (
 
 @include mat-core();
 body.theme-default {
+    @include angular-material-theme($addapptable-app-theme);
     @include addapptable-notifier($addapptable-app-theme, $addapptable-theme-variables);
 }
+```
+
+- Do not forget to put the theme-default class in the html body
+
+```html
+<body class="theme-default"></body>
 ```

@@ -22,7 +22,7 @@ import { ADDAPPTABLE_CONFIGURATION_NOTIFIER_DATA, ADDAPPTABLE_NOTIFIER_DATA } fr
 import { NotifierConfiguration } from './models/notifier-configuration.model';
 import { Notifier } from './models/notifier.model';
 import { PortalInjector, ComponentType } from '@angular/cdk/portal';
-import { DynamicDirective } from '@addapptables/perfect-scrollbar';
+import { DynamicDirective } from '@addapptables/core';
 
 @Component({
   selector: 'addapptable-notifier',

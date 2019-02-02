@@ -11,14 +11,14 @@ import { NotifierPositionType } from './models/notifier-position-enum.model';
 import { TopRightStrategy } from './strategies/top-right.strategy';
 import { TopLeftStrategy } from './strategies/top-left.strategy';
 import { BottomLeftStrategy } from './strategies/bottom-left.strategy';
-import { AddapptablePerfectScrollbarModule } from '@addapptables/perfect-scrollbar';
+import { CoreModule } from '@addapptables/core';
 
 @NgModule({
   declarations: [NotifierComponent],
   imports: [
     CommonModule,
     MatButtonModule,
-    AddapptablePerfectScrollbarModule
+    CoreModule
   ],
   entryComponents: [NotifierComponent],
   providers: [
