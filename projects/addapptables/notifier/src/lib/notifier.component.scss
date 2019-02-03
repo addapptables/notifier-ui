@@ -40,6 +40,21 @@
         text-shadow: none;
         opacity: .9;
         line-height: .5;
+        box-sizing: border-box;
+        position: relative;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 4px;
+        overflow: visible;
+        background-color: transparent;
     }
     .message {
         display: block;

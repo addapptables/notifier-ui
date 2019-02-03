@@ -139,7 +139,7 @@ export class NotifierCustomSuccessComponent {
 }
 ```
 
-## Custom css
+## Import css
 
 ```scss
 @import '~@angular/material/theming';

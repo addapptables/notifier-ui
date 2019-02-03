@@ -1,7 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotifierComponent } from './notifier.component';
-import { MatButtonModule } from '@angular/material';
 import { NotifierService } from './services/notifier.service';
 import { NotifierPortalService } from './services/notifier-portal.service';
 import { BottomRightStrategy } from './strategies/bottom-right.strategy';
@@ -17,7 +16,6 @@ import { CoreModule } from '@addapptables/core';
   declarations: [NotifierComponent],
   imports: [
     CommonModule,
-    MatButtonModule,
     CoreModule
   ],
   entryComponents: [NotifierComponent],
