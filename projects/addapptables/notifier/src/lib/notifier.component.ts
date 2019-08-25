@@ -48,7 +48,7 @@ export class NotifierComponent implements OnInit, AfterViewInit, OnDestroy {
 
   seconds = interval(5000);
 
-  @ViewChild(DynamicDirective)
+  @ViewChild(DynamicDirective, { static: true })
   appDynamic: DynamicDirective;
 
   constructor(

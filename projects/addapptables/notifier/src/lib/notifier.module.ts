@@ -35,6 +35,13 @@ export class NotifierModule {
     classIcon: 'material-icons',
     iconValue: 'notifications'
   }): ModuleWithProviders {
+    const defaultConfig = {
+      position: NotifierPositionType.bottomRight,
+      timeout: 5000,
+      classIcon: 'material-icons',
+      iconValue: 'notifications'
+    };
+    config = Object.assign(defaultConfig, config);
     return {
       ngModule: NotifierModule,
       providers: [
