@@ -17,19 +17,28 @@ import { TopLeftStrategy } from '../strategies/top-left.strategy';
 @Injectable()
 export class NotifierService {
 
+  defaultConfiguration: NotifierConfiguration = {
+    position: NotifierPositionType.bottomRight,
+    timeout: 5000,
+    classIcon: 'material-icons',
+    iconValue: 'notifications'
+  };
+
   constructor(
     private _notifierPortalService: NotifierPortalService,
     private _injector: Injector,
     @Inject(DOCUMENT) private _document: any,
-    @Inject(ADDAPPTABLE_CONFIGURATION_NOTIFIER_DATA) private configuration: NotifierConfiguration
-  ) { }
+    @Inject(ADDAPPTABLE_CONFIGURATION_NOTIFIER_DATA) configuration: NotifierConfiguration
+  ) {
+    this.defaultConfiguration = Object.assign(this.defaultConfiguration, configuration);
+  }
 
   open(data: Notifier, configuration: NotifierConfiguration = <NotifierConfiguration>{}): NotifierRef {
     const portal = this._notifierPortalService.create();
     const componentPortal = this.createComponentPortal(data);
     const componentRef = portal.attach(componentPortal);
     const notifierRef = new NotifierRef(componentRef.instance, portal, this._document, this._notifierPortalService.getLastUniqueId);
-    const mergeConfiguration = Object.assign(this.configuration, configuration);
+    const mergeConfiguration = Object.assign(this.defaultConfiguration, configuration);
     this.factoryStrategy(mergeConfiguration).newNotifier(notifierRef);
     return notifierRef;
   }

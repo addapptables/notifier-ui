@@ -23,6 +23,7 @@ import { NotifierConfiguration } from './models/notifier-configuration.model';
 import { Notifier } from './models/notifier.model';
 import { PortalInjector, ComponentType } from '@angular/cdk/portal';
 import { DynamicDirective } from '@addapptables/core';
+import { NotifierPositionType } from './models/notifier-position-enum.model';
 
 @Component({
   selector: 'addapptable-notifier',
@@ -48,15 +49,28 @@ export class NotifierComponent implements OnInit, AfterViewInit, OnDestroy {
 
   seconds = interval(5000);
 
+  configuration: NotifierConfiguration = {
+    position: NotifierPositionType.bottomRight,
+    timeout: 5000,
+    classIcon: 'material-icons',
+    iconValue: 'notifications'
+  };
+
   @ViewChild(DynamicDirective, { static: true })
   appDynamic: DynamicDirective;
 
   constructor(
-    @Inject(ADDAPPTABLE_CONFIGURATION_NOTIFIER_DATA) public configuration: NotifierConfiguration,
+    @Inject(ADDAPPTABLE_CONFIGURATION_NOTIFIER_DATA) configuration: NotifierConfiguration,
     @Inject(ADDAPPTABLE_NOTIFIER_DATA) public data: Notifier,
     private componentFactoryResolver: ComponentFactoryResolver
   ) {
-    this.seconds = interval(configuration.timeout);
+    this.configuration = Object.assign({
+      position: NotifierPositionType.bottomRight,
+      timeout: 5000,
+      classIcon: 'material-icons',
+      iconValue: 'notifications'
+    }, configuration);
+    this.seconds = interval(this.configuration.timeout);
   }
 
   ngOnInit(): void {
